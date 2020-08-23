@@ -10,17 +10,45 @@
 		"Other"
 	],
 	"activationEvents": [
-		"onCommand:demo.helloWorld"
+		"*"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
-		"commands": [
-			{
+		"commands": [{
 				"command": "demo.helloWorld",
 				"title": "Hello World"
+			},
+			{
+				"command": "demo.codeReverse",
+				"title": "Code Reverse"
+			},
+			{
+				"command": "demo.toUpperToLower",
+				"title": "toUpperToLower"
 			}
-		]
+		],
+		"keybindings": [{
+			"key": "ctrl+r",
+			"command": "demo.helloWorld",
+			"when": "*"
+		},
+		{
+			"key": "ctrl+u",
+			"command": "editor.toUpperToLower",
+			"when": "editorTextFocus"
+		}]
 	},
+	"keybindings": [{
+			"key": "ctrl+r",
+			"command": "demo.helloWorld",
+			"when": "*"
+		},
+		{
+			"key": "ctrl+u",
+			"command": "editor.toUpperToLower",
+			"when": "editorTextFocus"
+		}
+	],
 	"scripts": {
 		"vscode:prepublish": "npm run compile",
 		"compile": "tsc -p ./",
